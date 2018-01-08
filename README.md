@@ -35,6 +35,7 @@ VGGのネットワークを参考に編集しました。
 <div align="center">
   <img width="100px" src="https://user-images.githubusercontent.com/4949982/34658318-57ee45fc-f471-11e7-8e4a-7a742e1e3f2b.png">
 </div>
+<div align="center"> 図2. 作成したネットワーク</div>
 
 ## 目的関数
 微妙な判断結果になった場合、次点を正しく出力したいので、sotfmaxではなく、3つのsigmoidを出力して、それぞれのbinary cross entropyを損失としています  
