@@ -25,5 +25,5 @@ Pythonやいくつかの言語では、UTF8以外を扱うとバグるのです�
 VGGのネットワークを参考に編集しました。
 
 <div align="center">
-  <img width="200px" src="https://user-images.githubusercontent.com/4949982/34658318-57ee45fc-f471-11e7-8e4a-7a742e1e3f2b.png">
+  <img width="100px" src="https://user-images.githubusercontent.com/4949982/34658318-57ee45fc-f471-11e7-8e4a-7a742e1e3f2b.png">
 </div>
