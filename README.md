@@ -35,7 +35,9 @@ VGGのネットワークを参考に編集しました。
 ## コード
 全体のコードはgithubにあります
 
-[https://github.com/GINK03/keras-cnn-character-code-detection]
+[https://github.com/GINK03/keras-cnn-character-code-detection]  
+
+モデルはosciiartさんの作り方を参考にさせていただきました  
 
 ```python
 def CBRD(inputs, filters=64, kernel_size=3, droprate=0.5):
@@ -74,4 +76,46 @@ x = Flatten()(x)
 x = Dense(3, name='dense_last', activation='sigmoid')(x)
 model = Model(inputs=input_tensor, outputs=x)
 model.compile(loss='binary_crossentropy', optimizer='adam')
+```
+
+## データセット
+[nifty newsさん](https://news.nifty.com/)のニュースコーパスを利用しました。  
+
+zipファイルを分割して圧縮しています 
+
+もし、お手元で試していただいて性能が出ないと感じる場合は、おそらく、コーパスの属性があっていないものですので、再学習してもいいと思います  
+
+[https://github.com/GINK03/keras-cnn-character-code-detection/tree/master/dataset]
+
+## 前処理
+
+dbmに入ったデータセットから内容をテキストファイルで取り出します
+```console
+$ python3 14-make_files.py
+```
+
+nkfを使ってeucのデータセットを作成します(Python2で実行)
+```console
+$ python2 15-make_euc.py
+```
+
+nkfを使ってsjisのデータセットを作成します(Python2で実行)
+```console
+$ python2 16-make_shiftjis.py
+```
+
+byte表現に対してindexをつけます(Python3で実行)
+```console
+$ python3 17-unicode_vector.py 
+```
+
+最終的に用いるデータセットを作成してKVSに格納します(LevelDBが必要)
+```console
+$ python3 18-make_pair.py
+```
+
+## 学習
+
+```console
+$ python3 19-train.py --train
 ```
