@@ -108,3 +108,14 @@ byte表現に対してindexをつけます(Python3で実行)
 ```console
 $ python3 17-unicode_vector.py 
 ```
+
+最終的に用いるデータセットを作成してKVSに格納します(LevelDBが必要)
+```console
+$ python3 18-make_pair.py
+```
+
+## 学習
+
+```console
+$ python3 19-train.py --train
+```
