@@ -128,4 +128,9 @@ $ python3 19-train.py --predict --file=${FILE_PATH}
 例
 ```console
 $ python3 19-train.py --predict --fild=
+$ python3 19-train.py --predict --file=../keras-mojibake-grabled/eucs/000000123.txt 
+Using TensorFlow backend.
+this document is EUC. # <- EUCとして判別された
 ```
+
+
