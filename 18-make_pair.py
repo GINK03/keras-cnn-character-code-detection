@@ -8,7 +8,11 @@ import dbm
 
 import hashlib
 
-db = dbm.open('key_data.dbm', 'c')
+import numpy as np
+
+
+import plyvel
+db = plyvel.DB('key_data.ldb', create_if_missing=True)
 
 char_index = json.loads( open('./char_index.json').read() )
 
@@ -30,7 +34,7 @@ for name in glob.glob('eucs/*.txt'):
   val = pickle.dumps((X,y))
   key = hashlib.sha256(val).hexdigest()
   print(key)
-  db[key] = val
+  db.put(bytes(key,'utf8'),val)
 
 for name in glob.glob('sjis/*.txt'):
   b = open(name, 'rb').read()
@@ -50,7 +54,7 @@ for name in glob.glob('sjis/*.txt'):
   val = pickle.dumps((X,y))
   key = hashlib.sha256(val).hexdigest()
   print(key)
-  db[key] = val
+  db.put(bytes(key,'utf8'),val)
 
 for name in glob.glob('texts/*.txt'):
   b = open(name, 'rb').read()
@@ -70,4 +74,4 @@ for name in glob.glob('texts/*.txt'):
   val = pickle.dumps((X,y))
   key = hashlib.sha256(val).hexdigest()
   print(key)
-  db[key] = val
+  db.put(bytes(key,'utf8'),val)
