@@ -120,6 +120,16 @@ $ python3 18-make_pair.py
 $ python3 19-train.py --train
 ```
 
+**テストデータにおける精度** 
+hash値でデータを管理していて、7から始まるデータをテストデータしています  
+```console
+Train on 464 samples, validate on 36 samples
+Epoch 1/1
+464/464 [==============================] - 1s 1ms/step - loss: 2.1088e-05 - val_loss: 2.8882e-06
+```
+val_lossが極めて小さい値になっており、十分小さい値を出しています
+
+
 ## 予想
 
 ```console
