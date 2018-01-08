@@ -129,6 +129,12 @@ Epoch 1/1
 ```
 val_lossが極めて小さい値になっており、十分小さい値を出しています
 
+## 精度
+7から始まるhash値のデータセットで1000件検証したところ、99.9%でした（すごい）
+```console
+$ python3 19-train.py --precision 
+actual precision 99.9
+```
 
 ## 予想
 
