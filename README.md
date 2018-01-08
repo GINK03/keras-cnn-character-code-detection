@@ -79,7 +79,7 @@ model.compile(loss='binary_crossentropy', optimizer='adam')
 ```
 
 ## データセット
-[nifty newsさん](https://news.nifty.com/)のニュースコーパスを利用しました。  
+[nifty newsさん](https://news.nifty.com/)と[niconico newsさん](http://news.nicovideo.jp/)のニュースコーパスを利用しました。  
 
 zipファイルを分割して圧縮しています 
 
