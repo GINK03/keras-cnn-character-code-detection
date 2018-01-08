@@ -34,6 +34,9 @@ VGGのネットワークを参考に編集しました。
 
 ## コード
 全体のコードはgithubにあります
+
+[https://github.com/GINK03/keras-cnn-character-code-detection]
+
 ```python
 def CBRD(inputs, filters=64, kernel_size=3, droprate=0.5):
   x = Conv1D(filters, kernel_size, padding='same',
