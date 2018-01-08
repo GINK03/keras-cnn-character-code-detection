@@ -86,3 +86,25 @@ zipファイルを分割して圧縮しています
 もし、お手元で試していただいて性能が出ないと感じる場合は、おそらく、コーパスの属性があっていないものですので、再学習してもいいと思います  
 
 [https://github.com/GINK03/keras-cnn-character-code-detection/tree/master/dataset]
+
+## 前処理
+
+dbmに入ったデータセットから内容をテキストファイルで取り出します
+```console
+$ python3 14-make_files.py
+```
+
+nkfを使ってeucのデータセットを作成します(Python2で実行)
+```console
+$ python2 15-make_euc.py
+```
+
+nkfを使ってsjisのデータセットを作成します(Python2で実行)
+```console
+$ python2 16-make_shiftjis.py
+```
+
+byte表現に対してindexをつけます(Python3で実行)
+```console
+$ python3 17-unicode_vector.py 
+```
