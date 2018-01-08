@@ -119,3 +119,13 @@ $ python3 18-make_pair.py
 ```console
 $ python3 19-train.py --train
 ```
+
+## 予想
+
+```console
+$ python3 19-train.py --predict --file=${FILE_PATH}
+```
+例
+```console
+$ python3 19-train.py --predict --fild=
+```
