@@ -35,7 +35,9 @@ VGGのネットワークを参考に編集しました。
 ## コード
 全体のコードはgithubにあります
 
-[https://github.com/GINK03/keras-cnn-character-code-detection]
+[https://github.com/GINK03/keras-cnn-character-code-detection]  
+
+モデルはosciiartさんの作り方を参考にさせていただきました  
 
 ```python
 def CBRD(inputs, filters=64, kernel_size=3, droprate=0.5):
