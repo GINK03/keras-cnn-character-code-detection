@@ -77,3 +77,12 @@ x = Dense(3, name='dense_last', activation='sigmoid')(x)
 model = Model(inputs=input_tensor, outputs=x)
 model.compile(loss='binary_crossentropy', optimizer='adam')
 ```
+
+## データセット
+[nifty newsさん](https://news.nifty.com/)のニュースコーパスを利用しました。  
+
+zipファイルを分割して圧縮しています 
+
+もし、お手元で試していただいて性能が出ないと感じる場合は、おそらく、コーパスの属性があっていないものですので、再学習してもいいと思います  
+
+[https://github.com/GINK03/keras-cnn-character-code-detection/tree/master/dataset]
