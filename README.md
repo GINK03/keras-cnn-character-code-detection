@@ -27,3 +27,48 @@ VGGのネットワークを参考に編集しました。
 <div align="center">
   <img width="100px" src="https://user-images.githubusercontent.com/4949982/34658318-57ee45fc-f471-11e7-8e4a-7a742e1e3f2b.png">
 </div>
+
+## 目的関数
+微妙な判断結果になった場合、次点を正しく出力したいので、sotfmaxではなく、3つのsigmoidを出力して、それぞれのbinary cross entropyを損失としています　　
+出力の解釈せいが良いので個人的によく使うテクニックです  
+
+## コード
+全体のコードはgithubにあります
+```python
+def CBRD(inputs, filters=64, kernel_size=3, droprate=0.5):
+  x = Conv1D(filters, kernel_size, padding='same',
+            kernel_initializer='random_normal')(inputs)
+  x = BatchNormalization()(x)
+  x = Activation('relu')(x)
+  return x
+
+input_tensor = Input( shape=(300, 95) )
+
+x = input_tensor
+x = CBRD(x, 2)
+x = CBRD(x, 2)
+x = MaxPool1D()(x)
+
+x = CBRD(x, 4)
+x = CBRD(x, 4)
+x = MaxPool1D()(x)
+
+x = CBRD(x, 8)
+x = CBRD(x, 8)
+x = MaxPool1D()(x)
+
+x = CBRD(x, 16)
+x = CBRD(x, 16)
+x = CBRD(x, 16)
+x = MaxPool1D()(x)
+
+x = CBRD(x, 32)
+x = CBRD(x, 32)
+x = CBRD(x, 32)
+x = MaxPool1D()(x)
+
+x = Flatten()(x)
+x = Dense(3, name='dense_last', activation='sigmoid')(x)
+model = Model(inputs=input_tensor, outputs=x)
+model.compile(loss='binary_crossentropy', optimizer='adam')
+```
